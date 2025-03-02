@@ -1,0 +1,55 @@
+
+mport 'data_model.dart';
+
+void main() {
+  print('Data Model Demo');
+  
+  // Create some sample users
+  final user1 = User(
+    id: 1,
+    name: 'John Doe',
+    email: 'john@example.com',
+    age: 28,
+  );
+  
+  final user2 = User(
+    id: 2,
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    age: 32,
+  );
+  
+  // Create some sample products
+  final product1 = Product(
+    id: 101,
+    name: 'Laptop',
+    price: 1299.99,
+    description: 'High-performance laptop with 16GB RAM',
+  );
+  
+  final product2 = Product(
+    id: 102,
+    name: 'Smartphone',
+    price: 799.99,
+    description: 'Latest smartphone with 5G capability',
+  );
+  
+  // Display the created objects
+  print('\nUsers:');
+  print(user1);
+  print(user2);
+  
+  print('\nProducts:');
+  print(product1);
+  print(product2);
+  
+  // Demonstrate conversion to and from maps
+  print('\nData Serialization Demo:');
+  final userMap = user1.toMap();
+  print('User as Map: $userMap');
+  
+  final userFromMap = User.fromMap(userMap);
+  print('User from Map: $userFromMap');
+}
+
+

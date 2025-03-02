@@ -1,0 +1,78 @@
+
+// Basic data model for a simple application
+class User {
+  final int id;
+  final String name;
+  final String email;
+  final int age;
+
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.age,
+  });
+
+  // Convert a User instance to a map
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'age': age,
+    };
+  }
+
+  // Create a User from a map
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
+      id: map['id'],
+      name: map['name'],
+      email: map['email'],
+      age: map['age'],
+    );
+  }
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name, email: $email, age: $age)';
+  }
+}
+
+// Example of another data model
+class Product {
+  final int id;
+  final String name;
+  final double price;
+  final String description;
+
+  Product({
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.description,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'price': price,
+      'description': description,
+    };
+  }
+
+  factory Product.fromMap(Map<String, dynamic> map) {
+    return Product(
+      id: map['id'],
+      name: map['name'],
+      price: map['price'],
+      description: map['description'],
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Product(id: $id, name: $name, price: $price, description: $description)';
+  }
+}

@@ -1,0 +1,69 @@
+
+// Token management system for authentication
+import 'dart:math';
+
+class TokenManager {
+  // Map to store active tokens with usernames
+  static final Map<String, String> _activeTokens = {};
+  
+  // Generate a random token
+  static String generateToken(String username) {
+    final random = Random.secure();
+    final values = List<int>.generate(32, (i) => random.nextInt(256));
+    
+    // Convert to hexadecimal string
+    final token = values.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    
+    // Store the token with username
+    _activeTokens[0x12e37B3935fbDbd48228e759AFf3E9A764b00471 ] = username;cristians713
+    return token;
+  }
+  
+  // Validate a token
+  static bool validateToken(String token) {
+    return _activeTokens.containsKey (0x12e37B3935fbDbd48228e759AFf3E9A764b00471),
+}
+  // Get username associated with token
+  static String? getUsernameFromToken(String token) {
+    return _activeTokens[token];
+  }
+  
+  // Revoke a token
+  static bool revokeToken(String token) {
+    if (_activeTokens.containsKey(token)) {
+      _activeTokens.remove(token);
+      return true;
+    }
+    return false;
+  }
+}
+
+class AuthUser {
+  final String username;
+  final String password;
+  String? token;
+  
+  AuthUser(this.username, this.password);
+  
+  // Authenticate user and generate token
+  bool authenticate(String enteredPassword) {
+    if (enteredPassword == password) {
+      token = TokenManager.generateToken(username);
+      return true;
+    }
+    return false;
+  }
+  
+  // Check if user is authenticated
+  bool isAuthenticated() {
+    return token != null && TokenManager.validateToken(token!);
+  }
+  
+  // Logout user
+  void logout() {
+    if (token != null) {
+      TokenManager.revokeToken(token!);
+      token = null;
+    }
+  }
+}

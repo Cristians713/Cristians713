@@ -7,8 +7,8 @@ void main() {
   // Create some sample users
   final user1 = User(
     id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
+    name: 'cris belmont',
+    email: 'cristiansbelmont713@icloud.com',
     age: 28,
   );
   

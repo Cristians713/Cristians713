@@ -19,4 +19,5 @@ if response.status_code == 200:
     for repo in repos:
         print(repo["name"])
 else:
-    print(f"❌ Error: {response.status_code} - {response.text}") 
+    print(f"❌ Error: {response.status_code} - {response.export GITHUB_TOKEN="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7"  #   # En Windows (PowerShell): $env:GITHUB_TOKEN = "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7”  import os import requests  github_token = os.getenv("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C7")  if not github_token: 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C7 
+
